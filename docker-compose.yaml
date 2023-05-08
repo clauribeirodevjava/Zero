@@ -5,8 +5,8 @@ services:
     build: 
       context: ./appnode
       dockerfile: Dockerfile
-    image: claudemirribeiro/appnode
     container_name: node
+    entrypoint: sh -c "npm install && node index.js"
     networks:
       - netRudi
     ports:
@@ -16,10 +16,7 @@ services:
     build: 
       context: ./appnginx
       dockerfile: Dockerfile
-    image: claudemirribeiro/appnginx
     container_name: nginx
-    volumes:
-      - ./appnginx/default.com:/etc/nginx/conf.d/default.conf
     networks:
       - netRudi
     ports:
