@@ -9,6 +9,8 @@ services:
     entrypoint: sh -c "npm install && node index.js"
     networks:
       - netRudi
+    volumes:
+      - ./appnode:/usr/src/app
     ports:
       - "3000:3000"      
 
@@ -20,7 +22,7 @@ services:
     networks:
       - netRudi
     ports:
-      - "80:80"
+      - "8080:80"
     depends_on:
       - node
 
